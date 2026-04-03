@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AsyTech - Smart connected solutions for animals</title>
+    <meta name="description" content="AsyTech offers smart connected pet doors for cats, dogs, rabbits, chickens, cows. RFID access control, activity tracking, alerts, 100% offline (Bluetooth + LoRa).">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0A192F 0%, #0F2A3F 100%); color: #E6F1FF; scroll-behavior: smooth; }
+        nav { position: sticky; top: 0; background: rgba(10,25,47,0.9); backdrop-filter: blur(12px); padding: 1rem 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; z-index: 100; border-bottom: 1px solid rgba(100,255,218,0.2); }
+        .logo { font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg,#64FFDA,#00B4D8); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .nav-links a { color: #CCD6F6; text-decoration: none; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: #64FFDA; }
+        .btn-outline { border: 1px solid #64FFDA; padding: 0.5rem 1.2rem; border-radius: 30px; background: transparent; color: #64FFDA; font-weight: 600; transition: 0.3s; cursor: pointer; }
+        .lang-switch { margin-left: 1rem; }
+        section { padding: 5rem 2rem; max-width: 1400px; margin: 0 auto; }
+        .hero { text-align: center; padding: 6rem 2rem; }
+        .hero h1 { font-size: 3.2rem; background: linear-gradient(135deg,#fff,#64FFDA); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .badge { display: inline-block; background: #64FFDA20; border: 1px solid #64FFDA; border-radius: 50px; padding: 0.3rem 1rem; font-size: 0.8rem; margin-bottom: 1rem; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 2rem; margin-top: 2rem; }
+        .product-card { background: rgba(17,34,64,0.7); backdrop-filter: blur(4px); border-radius: 32px; padding: 1.5rem; transition: 0.3s; border: 1px solid rgba(100,255,218,0.2); }
+        .product-card:hover { transform: translateY(-8px); border-color: #64FFDA; }
+        .product-img { width: 100%; height: 220px; object-fit: contain; margin-bottom: 1rem; background: #112240; border-radius: 24px; display: flex; align-items: center; justify-content: center; }
+        .product-img img { max-width: 100%; max-height: 100%; border-radius: 20px; }
+        .product-title { font-size: 1.8rem; font-weight: 700; }
+        .tech-tag { background: #233554; border-radius: 20px; padding: 0.2rem 0.8rem; font-size: 0.7rem; display: inline-block; margin: 0.2rem; }
+        .screenshots { background: #0A192F; border-radius: 40px; padding: 2rem; margin: 2rem 0; }
+        .carousel { display: flex; overflow-x: auto; gap: 1.5rem; padding: 1rem 0; }
+        .carousel-item { flex: 0 0 280px; background: #112240; border-radius: 28px; padding: 1rem; text-align: center; }
+        .carousel-item img { width: 100%; border-radius: 20px; height: 480px; object-fit: cover; background: #1E2A47; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 2rem; margin: 3rem 0; }
+        .feature-item { text-align: center; padding: 1.5rem; background: rgba(35,53,84,0.5); border-radius: 28px; }
+        .feature-item i { font-size: 2.5rem; color: #64FFDA; margin-bottom: 1rem; }
+        .lora-card { background: linear-gradient(135deg,#1E3A5F,#0A192F); border-radius: 40px; padding: 2rem; border: 1px solid #64FFDA40; margin-top: 2rem; }
+        footer { background: #071424; padding: 2rem; text-align: center; border-top: 1px solid #233554; }
+        button { background: #64FFDA; border: none; padding: 0.8rem 1.8rem; border-radius: 40px; font-weight: bold; color: #0A192F; cursor: pointer; transition: 0.3s; }
+        @media (max-width:768px) { .hero h1 { font-size: 2rem; } section { padding: 3rem 1rem; } nav { flex-direction: column; gap: 1rem; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">ASYTECH</div>
+    <div class="nav-links">
+        <a href="#products">Devices</a>
+        <a href="#app">App</a>
+        <a href="#security">Security</a>
+        <a href="#lora">LoRa</a>
+        <a href="#contact" class="btn-outline">Contact</a>
+        <a href="index.html" class="btn-outline lang-switch">🇫🇷 Français</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="badge">🔒 100% offline – Private data</div>
+    <h1>Smart control<br>for all your animals</h1>
+    <p>AsyTech – RFID, Bluetooth, LoRa. Tailor-made, secure and autonomous solution.</p>
+    <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Discover →</button>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+    <h2 style="font-size:2rem; text-align:center;">Our connected devices</h2>
+    <div class="product-grid">
+        <div class="product-card"><div class="product-img"><img src="https://raw.githubusercontent.com/Asytech/Asytech2026/main/chatimage.png" alt="MiawTech"></div><div class="product-title">MiawTech</div><div><span class="tech-tag">Cat</span> <span class="tech-tag">Code M1212</span></div><div class="product-desc">Smart cat flap: RFID, motorized opening, entry/exit tracking, alerts if cat stays outside.</div><button class="btn-outline" onclick="alert('MiawTech details on request')">Learn more</button></div>
+        <div class="product-card"><div class="product-img"><img src="https://raw.githubusercontent.com/Asytech/Asytech2026/main/chienimage.png" alt="WoofTech"></div><div class="product-title">WoofTech</div><div><span class="tech-tag">Dog</span> <span class="tech-tag">Code C1212</span></div><div class="product-desc">Robust dog door, access control, history, time‑based blocking.</div><button class="btn-outline" onclick="alert('WoofTech details on request')">Learn more</button></div>
+        <div class="product-card"><div class="product-img"><img src="https://raw.githubusercontent.com/Asytech/Asytech2026/main/lapinimage.png" alt="LapTech"></div><div class="product-title">LapTech</div><div><span class="tech-tag">Rabbit</span> <span class="tech-tag">Code L1212</span></div><div class="product-desc">Small door for rabbits, activity monitoring, alert if not returned.</div><button class="btn-outline" onclick="alert('LapTech details on request')">Learn more</button></div>
+        <div class="product-card"><div class="product-img"><img src="https://raw.githubusercontent.com/Asytech/Asytech2026/main/coqimage.png" alt="CocoricoTech"></div><div class="product-title">CocoricoTech</div><div><span class="tech-tag">Hen/Rooster</span> <span class="tech-tag">Code P1212</span></div><div class="product-desc">Connected coop, motorized lock, predator protection.</div><button class="btn-outline" onclick="alert('CocoricoTech details on request')">Learn more</button></div>
+        <div class="product-card"><div class="product-img"><img src="https://raw.githubusercontent.com/Asytech/Asytech2026/main/vacheimage.png" alt="MeueTech"></div><div class="product-title">MeueTech</div><div><span class="tech-tag">Cow</span> <span class="tech-tag">Code V1212</span></div><div class="product-desc">Gate for cattle, long‑range RFID (UHF optional).</div><button class="btn-outline" onclick="alert('MeueTech details on request')">Learn more</button></div>
+        <div class="product-card"><div class="product-img"><img src="https://raw.githubusercontent.com/Asytech/Asytech2026/main/portatech.png" alt="PortaTech"></div><div class="product-title">PortaTech</div><div><span class="tech-tag">Generic gate</span> <span class="tech-tag">Code G1212</span></div><div class="product-desc">Entry door for garden/garage – multi‑user access control.</div><button class="btn-outline" onclick="alert('PortaTech details on request')">Learn more</button></div>
+    </div>
+</section>
+
+<!-- APP & SCREENSHOTS -->
+<section id="app">
+    <h2 style="font-size:2rem; text-align:center;">Unified mobile app</h2>
+    <div class="screenshots">
+        <h3>📱 Key features</h3>
+        <div class="carousel">
+            <div class="carousel-item"><img src="https://placehold.co/280x480/112240/64FFDA?text=Home+and+door+status" alt="Home"><div class="carousel-caption">Home & door status</div></div>
+            <div class="carousel-item"><img src="https://placehold.co/280x480/112240/64FFDA?text=Activity+chart" alt="Chart"><div class="carousel-caption">Activity per hour</div></div>
+            <div class="carousel-item"><img src="https://placehold.co/280x480/112240/64FFDA?text=Badge+management" alt="Badges"><div class="carousel-caption">RFID badge management</div></div>
+            <div class="carousel-item"><img src="https://placehold.co/280x480/112240/64FFDA?text=Schedules" alt="Schedules"><div class="carousel-caption">Time schedules</div></div>
+            <div class="carousel-item"><img src="https://placehold.co/280x480/112240/64FFDA?text=CSV+export" alt="Export"><div class="carousel-caption">CSV export</div></div>
+            <div class="carousel-item"><img src="https://placehold.co/280x480/112240/64FFDA?text=Notifications" alt="Notifications"><div class="carousel-caption">Real‑time alerts</div></div>
+        </div>
+        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
+            <span class="tech-tag">🏠 Home</span><span class="tech-tag">📊 Charts</span><span class="tech-tag">🔑 Badges</span>
+            <span class="tech-tag">⏰ Schedules</span><span class="tech-tag">📤 CSV export</span><span class="tech-tag">🔔 Notifications</span>
+        </div>
+    </div>
+    <div class="features">
+        <div class="feature-item"><i class="fas fa-microchip"></i><h3>RFID</h3><p>Unique badge identification.</p></div>
+        <div class="feature-item"><i class="fas fa-chart-line"></i><h3>Activity tracking</h3><p>Charts, history, export.</p></div>
+        <div class="feature-item"><i class="fas fa-calendar-alt"></i><h3>Schedules</h3><p>Time programming, mandatory presence.</p></div>
+        <div class="feature-item"><i class="fas fa-bell"></i><h3>Alerts</h3><p>Notification if pet stays out during restricted hours.</p></div>
+        <div class="feature-item"><i class="fas fa-database"></i><h3>Local data</h3><p>No internet transmission, 100% private.</p></div>
+        <div class="feature-item"><i class="fas fa-tag"></i><h3>Remote badge toggle</h3><p>Enable/disable badges remotely.</p></div>
+    </div>
+</section>
+
+<section id="security">
+    <div style="background:#0B2B3B; border-radius:48px; padding:2rem; text-align:center;">
+        <i class="fas fa-shield-alt" style="font-size:3rem; color:#64FFDA;"></i>
+        <h2>Your data never leaves your home</h2>
+        <p>No cloud, no subscription. Bluetooth communication only between the door and your phone. Absolute privacy.</p>
+    </div>
+</section>
+
+<section id="lora">
+    <h2 style="text-align:center;">LoRa technology – for remote areas</h2>
+    <div class="lora-card">
+        <div style="display:flex; flex-wrap:wrap; gap:2rem; align-items:center;">
+            <div style="flex:1"><i class="fas fa-satellite-dish" style="font-size:3rem;"></i><h3>Range up to 5 km</h3><p>Solution for farms, large estates, shelters. Local gateway, no Internet required.</p><span class="tech-tag">📡 LoRa</span><span class="tech-tag">🔋 Low power</span></div>
+            <div style="flex:1; text-align:center;"><img src="https://placehold.co/400x300/112240/64FFDA?text=LoRa+Schema" style="width:100%; border-radius:28px;"></div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" style="text-align:center;">
+    <h2>Ready to secure your animals?</h2>
+    <button onclick="alert('Email: contact@asytech.fr')">Request a quote</button>
+    <p style="margin-top:2rem;">📧 contact@asytech.fr &nbsp; 📞 +33 1 23 45 67 89</p>
+</section>
+
+<footer>
+    <p>© 2025 AsyTech – Cloud‑free connected solutions. Asytech.fr</p>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if(e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
+    }, {threshold:0.1});
+    document.querySelectorAll('.product-card, .feature-item, .lora-card').forEach(el => {
+        el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = '0.5s'; observer.observe(el);
+    });
+</script>
+</body>
+</html>
