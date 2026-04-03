@@ -2,41 +2,280 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>AsyTech - Solutions connectées pour animaux</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="AsyTech propose des chatières et portes connectées intelligentes pour chat, chien, lapin, poule, vache. Contrôle d'accès RFID, suivi d'activité, alertes, 100% sans Internet (Bluetooth + LoRa).">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0A192F 0%, #0F2A3F 100%); color: #E6F1FF; scroll-behavior: smooth; }
-        nav { position: sticky; top: 0; background: rgba(10,25,47,0.9); backdrop-filter: blur(12px); padding: 1rem 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; z-index: 100; border-bottom: 1px solid rgba(100,255,218,0.2); }
-        .logo { font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg,#64FFDA,#00B4D8); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-        .nav-links a { color: #CCD6F6; text-decoration: none; font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: #64FFDA; }
-        .btn-outline { border: 1px solid #64FFDA; padding: 0.5rem 1.2rem; border-radius: 30px; background: transparent; color: #64FFDA; font-weight: 600; transition: 0.3s; cursor: pointer; }
-        section { padding: 5rem 2rem; max-width: 1400px; margin: 0 auto; }
-        .hero { text-align: center; padding: 6rem 2rem; }
-        .hero h1 { font-size: 3.2rem; background: linear-gradient(135deg,#fff,#64FFDA); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .badge { display: inline-block; background: #64FFDA20; border: 1px solid #64FFDA; border-radius: 50px; padding: 0.3rem 1rem; font-size: 0.8rem; margin-bottom: 1rem; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 2rem; margin-top: 2rem; }
-        .product-card { background: rgba(17,34,64,0.7); backdrop-filter: blur(4px); border-radius: 32px; padding: 1.5rem; transition: 0.3s; border: 1px solid rgba(100,255,218,0.2); }
-        .product-card:hover { transform: translateY(-8px); border-color: #64FFDA; }
-        .product-img { width: 100%; height: 220px; object-fit: contain; margin-bottom: 1rem; background: #112240; border-radius: 24px; display: flex; align-items: center; justify-content: center; }
-        .product-img img { max-width: 100%; max-height: 100%; border-radius: 20px; }
-        .product-title { font-size: 1.8rem; font-weight: 700; }
-        .tech-tag { background: #233554; border-radius: 20px; padding: 0.2rem 0.8rem; font-size: 0.7rem; display: inline-block; margin: 0.2rem; }
-        .screenshots { background: #0A192F; border-radius: 40px; padding: 2rem; margin: 2rem 0; }
-        .carousel { display: flex; overflow-x: auto; gap: 1.5rem; padding: 1rem 0; }
-        .carousel-item { flex: 0 0 280px; background: #112240; border-radius: 28px; padding: 1rem; text-align: center; }
-        .carousel-item img { width: 100%; border-radius: 20px; height: 480px; object-fit: cover; background: #1E2A47; }
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 2rem; margin: 3rem 0; }
-        .feature-item { text-align: center; padding: 1.5rem; background: rgba(35,53,84,0.5); border-radius: 28px; }
-        .feature-item i { font-size: 2.5rem; color: #64FFDA; margin-bottom: 1rem; }
-        .lora-card { background: linear-gradient(135deg,#1E3A5F,#0A192F); border-radius: 40px; padding: 2rem; border: 1px solid #64FFDA40; margin-top: 2rem; }
-        footer { background: #071424; padding: 2rem; text-align: center; border-top: 1px solid #233554; }
-        button { background: #64FFDA; border: none; padding: 0.8rem 1.8rem; border-radius: 40px; font-weight: bold; color: #0A192F; cursor: pointer; transition: 0.3s; }
-        @media (max-width:768px) { .hero h1 { font-size: 2rem; } section { padding: 3rem 1rem; } nav { flex-direction: column; gap: 1rem; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0A192F 0%, #0F2A3F 100%);
+            color: #E6F1FF;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 25, 47, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(100, 200, 255, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #64FFDA, #00B4D8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #CCD6F6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #64FFDA;
+        }
+        .btn-outline {
+            border: 1px solid #64FFDA;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            background: transparent;
+            color: #64FFDA;
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .btn-outline:hover {
+            background: #64FFDA20;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .hero {
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFFFFF, #64FFDA);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 1rem auto;
+            color: #A8B2D1;
+        }
+        .badge {
+            display: inline-block;
+            background: #64FFDA20;
+            border: 1px solid #64FFDA;
+            border-radius: 50px;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Grille des produits */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .product-card {
+            background: rgba(17, 34, 64, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 32px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: #64FFDA;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.4);
+        }
+        .product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 24px;
+            background: #112240;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .product-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        .product-desc {
+            color: #A8B2D1;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            line-height: 1.5;
+        }
+        .tech-tag {
+            display: inline-block;
+            background: #233554;
+            border-radius: 20px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Carrousel captures écran */
+        .screenshots {
+            background: #0A192F;
+            border-radius: 40px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            scroll-snap-type: x mandatory;
+        }
+        .carousel::-webkit-scrollbar {
+            height: 6px;
+        }
+        .carousel::-webkit-scrollbar-track {
+            background: #1E2A47;
+            border-radius: 10px;
+        }
+        .carousel::-webkit-scrollbar-thumb {
+            background: #64FFDA;
+            border-radius: 10px;
+        }
+        .carousel-item {
+            flex: 0 0 280px;
+            background: #112240;
+            border-radius: 28px;
+            padding: 1rem;
+            scroll-snap-align: start;
+            text-align: center;
+        }
+        .carousel-item img {
+            width: 100%;
+            border-radius: 20px;
+            background: #1E2A47;
+            height: 480px;
+            object-fit: cover;
+        }
+        .carousel-caption {
+            margin-top: 0.5rem;
+            font-weight: 500;
+            color: #64FFDA;
+        }
+
+        /* Fonctionnalités */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(35, 53, 84, 0.5);
+            border-radius: 28px;
+        }
+        .feature-item i {
+            font-size: 2.5rem;
+            color: #64FFDA;
+            margin-bottom: 1rem;
+        }
+
+        /* LoRa Section */
+        .lora-card {
+            background: linear-gradient(135deg, #1E3A5F, #0A192F);
+            border-radius: 40px;
+            padding: 2rem;
+            border: 1px solid #64FFDA40;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #071424;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #233554;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+        button, .btn-demo {
+            background: #64FFDA;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            font-weight: bold;
+            color: #0A192F;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #00B4D8;
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body>
@@ -46,7 +285,7 @@
     <div class="nav-links">
         <a href="#produits">Dispositifs</a>
         <a href="#app">Application</a>
-        <a href="#securite">Sécurité</a>
+        <a href="#securite">Sécurité & Data</a>
         <a href="#lora">LoRa</a>
         <a href="#contact" class="btn-outline">Contact</a>
     </div>
@@ -55,129 +294,163 @@
 <section class="hero">
     <div class="badge">🔒 100% sans Internet – Données privées</div>
     <h1>Contrôle intelligent<br>pour tous vos animaux</h1>
-    <p>AsyTech – RFID, Bluetooth, LoRa. Solution sur-mesure, sécurisée et autonome.</p>
-    <button onclick="document.getElementById('produits').scrollIntoView({behavior:'smooth'})">Découvrir →</button>
+    <p>AsyTech révolutionne la gestion des accès et la surveillance de vos animaux. RFID, Bluetooth, LoRa : une solution sur-mesure, sécurisée et autonome.</p>
+    <button onclick="document.getElementById('produits').scrollIntoView({behavior:'smooth'})">Découvrir la gamme →</button>
 </section>
 
-<!-- PRODUITS avec liens directs -->
+<!-- SECTION PRODUITS -->
 <section id="produits">
-    <h2 style="font-size:2rem; text-align:center;">Nos dispositifs connectés</h2>
-    <div class="product-grid">
-        <!-- Chat -->
-        <div class="product-card">
-            <div class="product-img"><img src="https://raw.githubusercontent.com/Asytech/Asytech2026/main/chatimage.png" alt="MiawTech"></div>
-            <div class="product-title">MiawTech</div>
-            <div><span class="tech-tag">Chat</span> <span class="tech-tag">Code M1212</span></div>
-            <div class="product-desc">Chatière connectée : RFID, ouverture motorisée, suivi des entrées/sorties, alertes si le chat reste dehors.</div>
-            <button class="btn-outline" onclick="alert('Détails MiawTech sur demande')">En savoir plus</button>
-        </div>
-        <!-- Chien -->
-        <div class="product-card">
-            <div class="product-img"><img src="https://raw.githubusercontent.com/Asytech/Asytech2026/main/chienimage.png" alt="WoofTech"></div>
-            <div class="product-title">WoofTech</div>
-            <div><span class="tech-tag">Chien</span> <span class="tech-tag">Code C1212</span></div>
-            <div class="product-desc">Porte robuste pour chien, contrôle d'accès, historique, blocage horaire.</div>
-            <button class="btn-outline" onclick="alert('Détails WoofTech sur demande')">En savoir plus</button>
-        </div>
-        <!-- Lapin -->
-        <div class="product-card">
-            <div class="product-img"><img src="https://raw.githubusercontent.com/Asytech/Asytech2026/main/lapinimage.png" alt="LapTech"></div>
-            <div class="product-title">LapTech</div>
-            <div><span class="tech-tag">Lapin</span> <span class="tech-tag">Code L1212</span></div>
-            <div class="product-desc">Petite porte adaptée aux lapins, surveillance d'activité, alerte si non rentré.</div>
-            <button class="btn-outline" onclick="alert('Détails LapTech sur demande')">En savoir plus</button>
-        </div>
-        <!-- Poule / Coq -->
-        <div class="product-card">
-            <div class="product-img"><img src="https://raw.githubusercontent.com/Asytech/Asytech2026/main/coqimage.png" alt="CocoricoTech"></div>
-            <div class="product-title">CocoricoTech</div>
-            <div><span class="tech-tag">Poule/Coq</span> <span class="tech-tag">Code P1212</span></div>
-            <div class="product-desc">Poulailler connecté, verrou motorisé, protection contre prédateurs.</div>
-            <button class="btn-outline" onclick="alert('Détails CocoricoTech sur demande')">En savoir plus</button>
-        </div>
-        <!-- Vache -->
-        <div class="product-card">
-            <div class="product-img"><img src="https://raw.githubusercontent.com/Asytech/Asytech2026/main/vacheimage.png" alt="MeueTech"></div>
-            <div class="product-title">MeueTech</div>
-            <div><span class="tech-tag">Vache</span> <span class="tech-tag">Code V1212</span></div>
-            <div class="product-desc">Portail pour bovins, identification longue distance (RFID UHF optionnel).</div>
-            <button class="btn-outline" onclick="alert('Détails MeueTech sur demande')">En savoir plus</button>
-        </div>
-        <!-- Portail générique -->
-        <div class="product-card">
-            <div class="product-img"><img src="https://raw.githubusercontent.com/Asytech/Asytech2026/main/portatech.png" alt="PortaTech"></div>
-            <div class="product-title">PortaTech</div>
-            <div><span class="tech-tag">Portail</span> <span class="tech-tag">Code G1212</span></div>
-            <div class="product-desc">Porte d'entrée générique (jardin, garage) – contrôle d'accès multi-utilisateurs.</div>
-            <button class="btn-outline" onclick="alert('Détails PortaTech sur demande')">En savoir plus</button>
-        </div>
-    </div>
+    <h2 style="font-size: 2rem; text-align: center;">Nos dispositifs connectés</h2>
+    <p style="text-align: center; max-width: 700px; margin: 1rem auto;">Chaque porte est adaptée à l'animal, avec la même technologie fiable : identification RFID, ouverture motorisée, alertes et planning.</p>
+    <div class="product-grid" id="productGrid"></div>
 </section>
 
-<!-- APPLICATION & CAPTURES D'ÉCRAN (liens directs pour chaque image) -->
+<!-- SECTION APPLICATION -->
 <section id="app">
-    <h2 style="font-size:2rem; text-align:center;">Application mobile unifiée</h2>
+    <h2 style="font-size: 2rem; text-align: center;">Application mobile unifiée</h2>
+    <p style="text-align: center; margin-bottom: 2rem;">Contrôlez toutes vos portes depuis une seule interface. Suivez l'activité, gérez les badges, planifiez les accès.</p>
+    
     <div class="screenshots">
-        <h3>📱 Fonctionnalités clés</h3>
-        <div class="carousel">
-            <!-- Remplacez les URLs ci-dessous par vos propres captures d'écran -->
-            <div class="carousel-item"><img src="https://placehold.co/280x480/112240/64FFDA?text=Accueil+et+statut+porte" alt="Accueil"><div class="carousel-caption">Accueil & statut porte</div></div>
-            <div class="carousel-item"><img src="https://placehold.co/280x480/112240/64FFDA?text=Graphique+activite" alt="Graphique"><div class="carousel-caption">Activité par heure</div></div>
-            <div class="carousel-item"><img src="https://placehold.co/280x480/112240/64FFDA?text=Gestion+des+badges" alt="Badges"><div class="carousel-caption">Gestion des badges RFID</div></div>
-            <div class="carousel-item"><img src="https://placehold.co/280x480/112240/64FFDA?text=Plannings" alt="Plannings"><div class="carousel-caption">Plannings horaires</div></div>
-            <div class="carousel-item"><img src="https://placehold.co/280x480/112240/64FFDA?text=Export+CSV" alt="Export"><div class="carousel-caption">Export CSV</div></div>
-            <div class="carousel-item"><img src="https://placehold.co/280x480/112240/64FFDA?text=Notifications" alt="Notifications"><div class="carousel-caption">Alertes temps réel</div></div>
-        </div>
-        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
-            <span class="tech-tag">🏠 Accueil</span><span class="tech-tag">📊 Graphiques</span><span class="tech-tag">🔑 Badges</span>
-            <span class="tech-tag">⏰ Plannings</span><span class="tech-tag">📤 Export CSV</span><span class="tech-tag">🔔 Notifications</span>
+        <h3>📱 Captures d'écran – Fonctionnalités clés</h3>
+        <div class="carousel" id="carousel"></div>
+        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+            <span class="tech-tag">🏠 Accueil & statut</span>
+            <span class="tech-tag">📊 Activité par heure</span>
+            <span class="tech-tag">🔑 Gestion des badges RFID</span>
+            <span class="tech-tag">⏰ Plannings horaires</span>
+            <span class="tech-tag">📤 Export CSV</span>
+            <span class="tech-tag">🔔 Notifications temps réel</span>
         </div>
     </div>
+
     <div class="features">
-        <div class="feature-item"><i class="fas fa-microchip"></i><h3>RFID</h3><p>Identification unique par badge.</p></div>
-        <div class="feature-item"><i class="fas fa-chart-line"></i><h3>Suivi activité</h3><p>Graphiques, historique, export.</p></div>
-        <div class="feature-item"><i class="fas fa-calendar-alt"></i><h3>Plannings</h3><p>Programmation horaire, présence obligatoire.</p></div>
-        <div class="feature-item"><i class="fas fa-bell"></i><h3>Alertes</h3><p>Notification si animal dehors en période interdite.</p></div>
-        <div class="feature-item"><i class="fas fa-database"></i><h3>Données locales</h3><p>Aucune transmission Internet, 100% privé.</p></div>
-        <div class="feature-item"><i class="fas fa-tag"></i><h3>Badges activables</h3><p>Activez/désactivez à distance.</p></div>
+        <div class="feature-item"><i class="fas fa-microchip"></i><h3>Identification RFID</h3><p>Chaque animal a son badge unique. Accès autorisé uniquement pour les animaux connus.</p></div>
+        <div class="feature-item"><i class="fas fa-chart-line"></i><h3>Suivi d'activité</h3><p>Graphiques entrées/sorties par heure, historique complet, export CSV.</p></div>
+        <div class="feature-item"><i class="fas fa-calendar-alt"></i><h3>Plannings intelligents</h3><p>Programmez les heures d'ouverture/fermeture, et des contraintes de présence à l'intérieur.</p></div>
+        <div class="feature-item"><i class="fas fa-bell"></i><h3>Alertes personnalisées</h3><p>Notification si l'animal est absent pendant sa plage horaire (son + message).</p></div>
+        <div class="feature-item"><i class="fas fa-database"></i><h3>Données locales</h3><p>Aucune donnée ne transite par Internet. Communication Bluetooth uniquement.</p></div>
+        <div class="feature-item"><i class="fas fa-tag"></i><h3>Badges activables</h3><p>Activez/désactivez un badge à distance. Gérez plusieurs animaux.</p></div>
     </div>
 </section>
 
+<!-- SÉCURITÉ DES DONNÉES -->
 <section id="securite">
-    <div style="background:#0B2B3B; border-radius:48px; padding:2rem; text-align:center;">
-        <i class="fas fa-shield-alt" style="font-size:3rem; color:#64FFDA;"></i>
+    <div style="background: #0B2B3B; border-radius: 48px; padding: 2rem; text-align: center;">
+        <i class="fas fa-shield-alt" style="font-size: 3rem; color: #64FFDA;"></i>
         <h2>Vos données ne quittent jamais votre maison</h2>
-        <p>Pas de cloud, pas d'abonnement. Communication Bluetooth uniquement entre la porte et votre téléphone. Confidentialité absolue.</p>
-    </div>
-</section>
-
-<section id="lora">
-    <h2 style="text-align:center;">Technologie LoRa – pour les zones éloignées</h2>
-    <div class="lora-card">
-        <div style="display:flex; flex-wrap:wrap; gap:2rem; align-items:center;">
-            <div style="flex:1"><i class="fas fa-satellite-dish" style="font-size:3rem;"></i><h3>Portée jusqu'à 5 km</h3><p>Solution pour élevages, grands terrains, refuges. Gateway local, pas d'Internet requis.</p><span class="tech-tag">📡 LoRa</span><span class="tech-tag">🔋 Faible consommation</span></div>
-            <div style="flex:1; text-align:center;"><img src="https://placehold.co/400x300/112240/64FFDA?text=Schema+LoRa" style="width:100%; border-radius:28px;"></div>
+        <p style="max-width: 800px; margin: 1rem auto;">Aucun serveur cloud, aucun abonnement. La chatière communique uniquement en Bluetooth avec votre téléphone. Pas de Wi-Fi, pas d'Internet. Vos informations (badges, historiques) restent physiquement chez vous. Confidentialité absolue.</p>
+        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+            <span>✔️ Pairing BLE sécurisé</span>
+            <span>✔️ Pas de transmission externe</span>
+            <span>✔️ Contrôle total utilisateur</span>
         </div>
     </div>
 </section>
 
-<section id="contact" style="text-align:center;">
+<!-- SOLUTION LoRA -->
+<section id="lora">
+    <h2 style="text-align: center;">Technologie LoRa – pour les zones éloignées</h2>
+    <div class="lora-card">
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+            <div style="flex:1">
+                <i class="fas fa-satellite-dish" style="font-size: 3rem;"></i>
+                <h3>Portée jusqu'à 5 km</h3>
+                <p>Pour les exploitations agricoles, grands terrains ou refuges, nous proposons une version LoRa (Long Range) de notre dispositif. Un récepteur central (gateway) collecte les informations de toutes les portes et transmet les alertes via Bluetooth à l'application.</p>
+                <p>Idéal pour suivre plusieurs bâtiments, surveiller des élevages de poules ou de vaches, sans infrastructure Internet.</p>
+                <div class="tech-tag">📡 Portée étendue</div>
+                <div class="tech-tag">🔋 Très faible consommation</div>
+                <div class="tech-tag">📦 Sans abonnement</div>
+            </div>
+            <div style="flex:1; text-align: center;">
+                <img src="https://placehold.co/400x300/112240/64FFDA?text=Schema+LoRa" alt="Schéma LoRa" style="width:100%; border-radius: 28px;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT & DEMO -->
+<section id="contact" style="text-align: center;">
     <h2>Prêt à sécuriser vos animaux ?</h2>
-    <button onclick="alert('Email : contact@asytech.fr')">Demander un devis</button>
-    <p style="margin-top:2rem;">📧 contact@asytech.fr &nbsp; 📞 +33 1 23 45 67 89</p>
+    <p>Contactez-nous pour une démonstration ou une commande personnalisée.</p>
+    <button onclick="alert('Email : contact@asytech.fr - Nous vous répondrons sous 24h')">Demander un devis</button>
+    <p style="margin-top: 2rem; font-size: 0.8rem;">📧 contact@asytech.fr &nbsp;&nbsp; 📞 +33 1 23 45 67 89</p>
 </section>
 
 <footer>
-    <p>© 2025 AsyTech – Solutions connectées sans cloud. Asytech.fr</p>
+    <p>© 2025 AsyTech – Solutions connectées sans cloud. Conçu pour la sécurité et la simplicité.</p>
+    <p>Asytech.fr – Tous droits réservés.</p>
 </footer>
 
 <script>
-    // Petit effet d'animation au scroll
+    // Données des produits
+    const products = [
+        { id: "cat", name: "MiawTech", animal: "Chat", code: "M1212", color1: "#33B2B4", color2: "#FF7610", image: "https://placehold.co/400x300/33B2B4/FFFFFF?text=MiawTech", description: "Chatière connectée pour chat. Identification RFID, ouverture motorisée, suivi des entrées/sorties, plannings personnalisés. Alertes si le chat reste dehors la nuit." },
+        { id: "dog", name: "WoofTech", animal: "Chien", code: "C1212", color1: "#4C8BF5", color2: "#FFB347", image: "https://placehold.co/400x300/4C8BF5/FFFFFF?text=WoofTech", description: "Porte pour chien, robuste et étanche. Contrôle d'accès via badge, historique des passages, possibilité de bloquer l'entrée aux heures indésirables." },
+        { id: "rabbit", name: "LapTech", animal: "Lapin", code: "L1212", color1: "#E6B0AA", color2: "#AED6F1", image: "https://placehold.co/400x300/E6B0AA/FFFFFF?text=LapTech", description: "Petite porte adaptée aux lapins. Surveillance de leur activité, alerte si le clapier reste ouvert ou si l'animal ne rentre pas." },
+        { id: "rooster", name: "CocoricoTech", animal: "Poule / Coq", code: "P1212", color1: "#E6B800", color2: "#D35400", image: "https://placehold.co/400x300/E6B800/FFFFFF?text=CocoricoTech", description: "Poulailler connecté. Gestion des accès, comptage des passages, protection contre les prédateurs grâce au verrou motorisé." },
+        { id: "cow", name: "MeueTech", animal: "Vache", code: "V1212", color1: "#8B4513", color2: "#F5F5DC", image: "https://placehold.co/400x300/8B4513/FFFFFF?text=MeueTech", description: "Portail pour bovins. Identification longue distance (RFID UHF optionnel), suivi des entrées/sorties, idéal pour gestion d'élevage." },
+        { id: "gate", name: "PortaTech", animal: "Portail", code: "G1212", color1: "#5D9B9B", color2: "#FFD966", image: "https://placehold.co/400x300/5D9B9B/FFFFFF?text=PortaTech", description: "Porte d'entrée générique pour toute utilisation (jardin, garage). Contrôle d'accès multi-utilisateurs, planification horaire." }
+    ];
+
+    const productGrid = document.getElementById('productGrid');
+    products.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+            <div class="product-img"><img src="${p.image}" alt="${p.name}" style="width:100%; height:auto;"></div>
+            <div class="product-title">${p.name}</div>
+            <div><span class="tech-tag">${p.animal}</span> <span class="tech-tag">Code ${p.code}</span></div>
+            <div class="product-desc">${p.description}</div>
+            <div style="margin-top:1rem;"><span class="tech-tag">🔒 RFID</span><span class="tech-tag">📱 BLE</span><span class="tech-tag">⚙️ Motorisé</span></div>
+            <button class="btn-outline" style="margin-top:1rem; width:100%;" onclick="showDemo('${p.name}')">En savoir plus</button>
+        `;
+        productGrid.appendChild(card);
+    });
+
+    // Captures d'écran (simulées mais réelles décrivant l'application)
+    const screenshots = [
+        { title: "Accueil & statut porte", desc: "Visualisation en temps réel de l'état de la porte, batterie, connectivité Bluetooth." },
+        { title: "Graphique activité", desc: "Histogramme des entrées/sorties par heure. Filtre jour/semaine/mois." },
+        { title: "Gestion des badges", desc: "Liste des badges RFID, activation/désactivation, association à un animal." },
+        { title: "Plannings", desc: "Programmation horaire d'ouverture de la porte et de présence obligatoire." },
+        { title: "Historique & export", desc: "Export CSV des événements, partage par email ou message." },
+        { title: "Notifications", desc: "Alertes sonores et visuelles si l'animal est dehors en période interdite." }
+    ];
+
+    const carousel = document.getElementById('carousel');
+    screenshots.forEach((s, idx) => {
+        const item = document.createElement('div');
+        item.className = 'carousel-item';
+        // Utilisation d'images de placeholder avec texte descriptif (simule des captures)
+        item.innerHTML = `
+            <div style="background: #1E2A47; border-radius: 20px; height: 480px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1rem;">
+                <i class="fas fa-mobile-alt" style="font-size: 4rem; color: #64FFDA;"></i>
+                <p style="margin-top: 1rem; font-weight: bold;">${s.title}</p>
+                <p style="font-size: 0.8rem; color: #A8B2D1;">${s.desc}</p>
+            </div>
+        `;
+        carousel.appendChild(item);
+    });
+
+    // Fonction pour afficher plus de détails
+    window.showDemo = (name) => {
+        alert(`Dispositif ${name} : fonctionnalités complètes disponibles sur demande. Contactez-nous pour une démonstration personnalisée.`);
+    };
+
+    // Animation simple au scroll
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if(e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
-    }, {threshold:0.1});
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.product-card, .feature-item, .lora-card').forEach(el => {
-        el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = '0.5s'; observer.observe(el);
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = '0.5s';
+        observer.observe(el);
     });
 </script>
 </body>
